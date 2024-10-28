@@ -10,6 +10,11 @@ export async function GET(
   return Response.json({
     data,
     path: params.params.path,
-    timestamp: Date.now()
-  })
+    timestamp: Date.now(),
+    cache: {
+      revalidated: true,
+      tag: params.params.path,
+      timestamp: Date.now()
+    },
+  });
 }
